@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "LOTR font";
+  src: url("ringbearer/LOTRFont.ttf");
+}
+
+@font-face {
+  font-family: "Elvish Font";
+  src: url("elvishFont/elvishFont.otf");
+}
+
+
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.row {
+  margin: 0px;
+}
+
+main {
+  min-height: 1000px;
+  min-width: 100%;
+
+  width: 100%;
+  height: auto;
+
+  background-image: url("../images/oneRing.jpg");
+  background-position: 50% 60%;
+}
+
+#mainHeader {
+  margin-top: 25px;
+  font-family: "LOTR font";
+  text-align: center;
+  color: #fac744;
+  position: absolute;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+section {
+  height: 600px;
+  width: 500px;
+  background-color: black;
+  opacity: 0.5;
+  font-family: "LOTR font";
+  position: fixed;
+  right: 300px;
+  top: 100px;
+}
+
+.mainSection {
+  color: White;
+}
+
+#startGame {
+  font-size: 30px;
+  position: absolute;
+  top: 100px;
+  left: 650px;
+  font-family: "Elvish Font";
+  color: white;
+  text-shadow:
+   -1px -1px 0 #905b20,
+   1px -1px 0 #905b20,
+   -1px 1px 0 #905b20,
+   1px 1px 0 #905b20;
+}
+
+a{
+  color: #fac744;
+}
+
+#startGame:hover {
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
+}
+
+.answerChoices:hover {
+  text-decoration: none;
+  color: orange;
+  cursor: pointer;
+}
+
+#questionBlank {
+  clear: both;
+}
+
+#stats {
+  float: right;
+}
+
+#wins {
+  padding-right: 50px;
+}
+
+#losses {
+  padding-right: 50px;
+}

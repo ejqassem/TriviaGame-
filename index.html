@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> LOTR Trivia Game </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel= "stylesheet" href="assets/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="row">
+        <h1 class="col-sm-12" id="mainHeader"> Welcome to Lord of the Rings Trivia! </h1>
+      </div>
+        <div class="row">
+          <section class = "col-sm-8 col-sm-push-2" id = "main">
+            <h2 class="mainSection"> Time remaining: <span id="timer"></span> <span id="stats"> Wins: <span id="wins"></span> Losses: <span id="losses"></span></span></h2>
+            <h2 class="mainSection"> Question: <span id="questionBlank"></span></h2>
+            <p><a class="mainSection answerChoices" id="answerChoice1"> Answer Choice 1 </a></p>
+            <p><a class="mainSection answerChoices" id="answerChoice2"> Answer Choice 2 </a></p>
+            <p><a class="mainSection answerChoices" id="answerChoice3"> Answer Choice 3 </a></p>
+            <p><a class="mainSection answerChoices" id="answerChoice4"> Answer Choice 4 </a></p>
+          </section>
+        </div>
+      <div class = "row">
+        <aside class = "col-sm-12">
+          <p><a id="startGame">Start Game</a></p>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>
