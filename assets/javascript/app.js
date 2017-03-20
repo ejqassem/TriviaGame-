@@ -9,12 +9,16 @@ var triviaQuestions = {
     answer: "20"
   }, {
     question: "\"In Fellowship of the Ring\", what gift does Lady Galadriel give Gimli before the fellowship leaves Lothlorien?",
-    answerChoices: ["Elvish Rope", "Three strands of her hair", "A pint crafted rom wood", "a dagger"],
+    answerChoices: ["Elvish Rope", "Three strands of her hair", "A pint crafted from wood", "a dagger"],
     answer: "Three strands of her hair"
   }, {
-    question: "Who said the following quote: \"What about Elevenses? Luncheon? Afternoon Tea? Dinner? Supper He knows about them, doesn't he'?\"",
+    question: "Who said the following quote: \"What about Elevenses? Luncheon? Afternoon Tea? Dinner? Supper? He knows about them, doesn't he'?\"",
     answerChoices: ["Merry", "Elrond", "Pippin", "Bombur"],
     answer: "Pippin"
+  } , {
+    question: "Where does the council of Elrond convene in the Lord of the Rings Trilogy",
+    answerChoices: ["Rivendell", "Moria", "Mirkwood", "The Shire"],
+    answer: "Rivendell"
   }]
 };
 
@@ -38,6 +42,11 @@ $("#userMissed").hide();
 document.getElementById("wins").innerHTML = wins;
 document.getElementById("losses").innerHTML = losses;
 
+var hobbitTheme = document.createElement("audio");
+hobbitTheme.src = "assets/music/hobbits-theme.mp3";
+hobbitTheme.currentTime = 4;
+hobbitTheme.play();
+
 
 function nextQuestion() {
   answerChosen = false;
@@ -57,6 +66,36 @@ function nextQuestion() {
     document.getElementById("main").append(gameOverScreen);
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("wins").innerHTML = wins;
+    if ( wins === 0) {
+      var gandalf = document.createElement("video");
+      gandalf.src = "assets/images/gandalf.mp4";
+      gandalf.style.position = "relative";
+      gandalf.style.top = "200px";
+      gandalf.style.zIndex = 2;
+      gandalf.autoplay = true;
+      gandalf.loop = true;
+      document.getElementById("mainHeader").append(gandalf);
+    }
+    if ( wins === 1 || wins === 2 || wins === 3) {
+      var pippen = document.createElement("video");
+      pippen.src = "assets/images/pippen.mp4";
+      pippen.style.position = "relative";
+      pippen.style.top = "150px";
+      pippen.style.zIndex = 2;
+      pippen.autoplay = true;
+      pippen.loop = true;
+      document.getElementById("mainHeader").append(pippen);
+    }
+    else if (wins === 4 || wins === 5) {
+      var fellowship = document.createElement("video");
+      fellowship.src = "assets/images/congrats2.mp4";
+      fellowship.style.position = "relative";
+      fellowship.style.top = "200px";
+      fellowship.style.zIndex = 2;
+      fellowship.autoplay = true;
+      fellowship.loop = true;
+      document.getElementById("mainHeader").append(fellowship);
+    }
   }
   getQuesAns();
   displayQuesAns();
@@ -89,7 +128,7 @@ function timer() {
     clearInterval(timeId);
     $("#mainHeader").css("display", "inherit");
     $("#mainHeader").html("<h1> You ran out of time </h1>");
-    setTimeout(nextQuestion, 2000);
+    setTimeout(nextQuestion, 3000);
     displayRightAns();
     triviaQuestions.allQuestions.splice(randomQuestion, 1);
     losses++;
@@ -133,9 +172,9 @@ $(".answerChoices").on("click", function(event) {
       clearInterval(timeId);
       $("#mainHeader").show();
       document.getElementById("mainHeader").innerHTML = "<h1> Congratulations </h1>";
-      $(this).css("background-color", "red");
+      $(this).css("background-color", "green");
       clearInterval(timeId);
-      setTimeout(nextQuestion, 5000);
+      setTimeout(nextQuestion, 3000);
       triviaQuestions.allQuestions.splice(randomQuestion, 1);
       wins++;
       document.getElementById("wins").innerHTML = wins;
@@ -147,9 +186,10 @@ $(".answerChoices").on("click", function(event) {
       $("#mainHeader").css("display", "inherit");
       document.getElementById("mainHeader").innerHTML = "<h1> You Shall Not Pass! </h1>";
       clearInterval(timeId);
-      setTimeout(nextQuestion, 5000);
+      setTimeout(nextQuestion, 3000);
       triviaQuestions.allQuestions.splice(randomQuestion, 1);
-      losses++;      document.getElementById("losses").innerHTML = losses;
+      losses++;
+      document.getElementById("losses").innerHTML = losses;
     }
   }
 });
