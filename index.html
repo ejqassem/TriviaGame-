@@ -10,25 +10,28 @@
   <div class="container">
     <main>
       <div class="row">
-        <h1 class="col-sm-12" id="mainHeader"> Welcome to Lord of the Rings Trivia! </h1>
+        <h1 class="col-sm-12" id="mainHeader"> Welcome to The Lord of the Rings Trivia! </h1>
       </div>
         <div class="row">
           <section class = "col-sm-8 col-sm-push-2" id = "main">
             <h2 class="mainSection"> Time remaining: <span id="timer"></span> <span id="stats"> Wins: <span id="wins"></span> Losses: <span id="losses"></span></span></h2>
-            <h2 class="mainSection"> Question: <span id="questionBlank"></span></h2>
-            <p><a class="mainSection answerChoices" id="answerChoice1"> Answer Choice 1 </a></p>
-            <p><a class="mainSection answerChoices" id="answerChoice2"> Answer Choice 2 </a></p>
-            <p><a class="mainSection answerChoices" id="answerChoice3"> Answer Choice 3 </a></p>
-            <p><a class="mainSection answerChoices" id="answerChoice4"> Answer Choice 4 </a></p>
+            <h2 class="mainSection"> <span id="questionBlank"></span></h2>
+            <ul>
+              <li><a class="mainSection answerChoices" id="answerChoice1"> Answer Choice 1 </a></li>
+              <li><a class="mainSection answerChoices" id="answerChoice2"> Answer Choice 2 </a></li>
+              <li><a class="mainSection answerChoices" id="answerChoice3"> Answer Choice 3 </a></li>
+              <li><a class="mainSection answerChoices" id="answerChoice4"> Answer Choice 4 </a></li>
+            </ul>
           </section>
         </div>
       <div class = "row">
         <aside class = "col-sm-12">
-          <p><a id="startGame">Start</a></p>
+          <!-- <h3><a id="resetGame">Reset </a></h3> -->
+          <h3><a id="startGame">Start</a></h3>
         </aside>
-      </main>
     </div>
-  </div>
+  </main>
+</div>
 
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>

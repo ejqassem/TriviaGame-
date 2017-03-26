@@ -77,6 +77,26 @@ section {
    1px 1px 0 #905b20;
 }
 
+#resetGame {
+  font-size: 30px;
+  position: absolute;
+  top: 140px;
+  left: 700px;
+  font-family: "Elvish Font";
+  color: white;
+  text-shadow:
+   -1px -1px 0 #905b20,
+   1px -1px 0 #905b20,
+   -1px 1px 0 #905b20,
+   1px 1px 0 #905b20;
+}
+
+#resetGame:hover {
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
+}
+
 a{
   color: #fac744;
 }
@@ -91,6 +111,10 @@ a{
   text-decoration: none;
   color: orange;
   cursor: pointer;
+}
+
+.answerChoices {
+  font-size: 24px;
 }
 
 #questionBlank {

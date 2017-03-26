@@ -16,7 +16,7 @@ var triviaQuestions = {
     answerChoices: ["Merry", "Elrond", "Pippin", "Bombur"],
     answer: "Pippin"
   } , {
-    question: "Where does the council of Elrond convene in the Lord of the Rings Trilogy",
+    question: "Where does the council of Elrond convene in the Lord of the Rings Trilogy?",
     answerChoices: ["Rivendell", "Moria", "Mirkwood", "The Shire"],
     answer: "Rivendell"
   }]
@@ -58,6 +58,7 @@ function nextQuestion() {
     $("#main").empty();
     $("#mainHeader").show();
     $("#mainHeader").html("<h1> Game Over </h1>");
+    $("#startGame").off();
     var gameOverScreen = document.createElement("div");
     gameOverScreen.setAttribute("id", "gameOver");
     gameOverScreen.innerHTML = "<h2> Game Stats: <br> Wins:<span id='wins'></span><br> Losses:<span id='losses'></span></h2>";
@@ -66,6 +67,8 @@ function nextQuestion() {
     document.getElementById("main").append(gameOverScreen);
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("wins").innerHTML = wins;
+    resetGame();
+    $("#resetGame").show();
     if ( wins === 0) {
       var gandalf = document.createElement("video");
       gandalf.src = "assets/images/gandalf.mp4";
@@ -119,11 +122,42 @@ function displayRightAns() {
   }
 }
 
+// function resetGame() {
+//   losses = 0;
+//   wins = 0;
+//   $("#timer").empty();
+//   clearInterval(timeId);
+//   triviaQuestions = {
+//     allQuestions: [{
+//       question : "Who said \"Nine Companions. So be it. You shall be the fellowship of the ring.\"",
+//       answerChoices: ["Elrond", "Gandalf", "Aargorn", "Celeborn"],
+//       answer: "Elrond"
+//     }, {
+//       question: "How many rings of power were forged in the second age?",
+//       answerChoices: ["1", "19", "20", "13"],
+//       answer: "20"
+//     }, {
+//       question: "\"In Fellowship of the Ring\", what gift does Lady Galadriel give Gimli before the fellowship leaves Lothlorien?",
+//       answerChoices: ["Elvish Rope", "Three strands of her hair", "A pint crafted from wood", "a dagger"],
+//       answer: "Three strands of her hair"
+//     }, {
+//       question: "Who said the following quote: \"What about Elevenses? Luncheon? Afternoon Tea? Dinner? Supper? He knows about them, doesn't he'?\"",
+//       answerChoices: ["Merry", "Elrond", "Pippin", "Bombur"],
+//       answer: "Pippin"
+//     } , {
+//       question: "Where does the council of Elrond convene in the Lord of the Rings Trilogy?",
+//       answerChoices: ["Rivendell", "Moria", "Mirkwood", "The Shire"],
+//       answer: "Rivendell"
+//     }]
+//   };
+//
+// }
+
 function timer() {
   time--;
   $("#timer").html(time);
   currentTime = parseInt(time);
-  if(currentTime == 0) {
+  if(currentTime === 0) {
     answerChosen = true;
     clearInterval(timeId);
     $("#mainHeader").css("display", "inherit");
@@ -158,9 +192,18 @@ function displayQuesAns() {
   document.getElementById("answerChoice4").setAttribute("value", answerChoice_4);
 }
 
+// $("#resetGame").one("click", function(event) {
+//     $("#main").show();
+//     $("#startGame").hide();
+//     $("#resetGame").hide();
+//     $("#mainHeader").css("display", "none");
+//     nextQuestion();
+// });
+
 $("#startGame").one("click", function(event) {
   $("#main").show();
   $("#startGame").hide();
+  $("#resetGame").hide();
   $("#mainHeader").css("display", "none");
   nextQuestion();
 });
