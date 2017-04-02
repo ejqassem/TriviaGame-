@@ -67,8 +67,6 @@ function nextQuestion() {
     document.getElementById("main").append(gameOverScreen);
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("wins").innerHTML = wins;
-    resetGame();
-    $("#resetGame").show();
     if ( wins === 0) {
       var gandalf = document.createElement("video");
       gandalf.src = "assets/images/gandalf.mp4";
@@ -99,6 +97,8 @@ function nextQuestion() {
       fellowship.loop = true;
       document.getElementById("mainHeader").append(fellowship);
     }
+    resetGame();
+    $("#resetGame").show();
   }
   getQuesAns();
   displayQuesAns();
